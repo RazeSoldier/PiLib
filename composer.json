@@ -1,0 +1,24 @@
+{
+  "name": "gakuencity/pi",
+  "description": "A Mathematical calculation library",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Raze Soldier",
+      "email": "razesoldier@outlook.com",
+      "homepage": "https://www.razesoldier.cn"
+    }
+  ],
+  "require": {
+    "php": ">7.1.0",
+    "ext-bcmath": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  },
+  "autoload": {
+    "psr-4": {
+      "PiLib\\": "src/"
+    }
+  }
+}

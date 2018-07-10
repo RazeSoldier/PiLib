@@ -1,0 +1,17 @@
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="/vendor/phpunit/phpunit/phpunit.xsd"
+        colors="true"
+        bootstrap="bootstrap.php">
+    <testsuites>
+        <testsuite name="Helper">
+            <file>src/PiTest.php</file>
+        </testsuite>
+        <testsuite name="Ex">
+            <directory>src/Physics</directory>
+        </testsuite>
+        <testsuite name="Math">
+            <directory>src/Math</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
