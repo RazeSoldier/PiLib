@@ -45,4 +45,9 @@ class ArithmeticTest extends TestCase
         $this->assertEquals( 0, strpos( Arithmetic::div( 1.1879641167E55, '22379522917973918490000' ),
             '530826381355025518507580486907732.44001195' ) );
     }
+
+    public function testRoot()
+    {
+        $this->assertEquals( 2, Arithmetic::root( 8, 3 ) );
+    }
 }

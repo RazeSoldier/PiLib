@@ -65,6 +65,17 @@ class Arithmetic
     }
 
     /**
+     * Get any root of a number (Non-precision operation)
+     * @param float $a A number
+     * @param float $b
+     * @return string
+     */
+    public static function root(float $a, float $b) : string
+    {
+        return self::rtrim( pow( $a, 1 / $b ) );
+    }
+
+    /**
      * Clear up output
      * Remove extra 0
      * @param string $str
