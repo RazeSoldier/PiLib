@@ -28,8 +28,9 @@ class PiTest extends TestCase
     public function testGravity()
     {
         $obj = new Pi( 'Physics.Gravity', [ 'm1' => 5.97237E24, 'm2' => 1.9891E30, 'r' => 149597870700 ] );
-        $this->assertSame( '35427777352739786224000', $obj->calculate() );
-        $this->assertSame( '35427777352739786224000', $obj->getResult() );
+        $expected = '35427777352739616159555.8483042664125773794213052446915057408353138135424238647114954938849385670732873736449196104068885543';
+        $this->assertSame( $expected, $obj->calculate() );
+        $this->assertSame( $expected, $obj->getResult() );
     }
 
     /**

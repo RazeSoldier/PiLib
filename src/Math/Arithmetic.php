@@ -24,11 +24,11 @@ class Arithmetic
 {
     /**
      * Multiply two arbitrary precision numbers
-     * @param $a float
-     * @param $b float
+     * @param $a float|string
+     * @param $b float|string
      * @return string
      */
-    public static function mul(float $a, float $b) : string
+    public static function mul($a, $b) : string
     {
         $arr = Math::batchFloatToString( [ $a, $b ] );
         $a = $arr[0];
@@ -38,11 +38,11 @@ class Arithmetic
 
     /**
      * Raise an arbitrary precision number to another
-     * @param float $a
-     * @param float $b
+     * @param float|string $a
+     * @param float|string $b
      * @return string
      */
-    public static function pow(float $a, float $b) : string
+    public static function pow($a, $b) : string
     {
         $arr = Math::batchFloatToString( [ $a, $b ] );
         $a = $arr[0];
@@ -52,11 +52,11 @@ class Arithmetic
 
     /**
      * Divide two arbitrary precision numbers
-     * @param float $a
-     * @param float $b
+     * @param float|string $a
+     * @param float|string $b
      * @return string
      */
-    public static function div(float $a, float $b) : string
+    public static function div($a, $b) : string
     {
         $arr = Math::batchFloatToString( [ $a, $b ] );
         $a = $arr[0];
@@ -66,13 +66,41 @@ class Arithmetic
 
     /**
      * Get any root of a number (Non-precision operation)
-     * @param float $a A number
-     * @param float $b
+     * @param float|string $a A number
+     * @param float|string $b
      * @return string
      */
-    public static function root(float $a, float $b) : string
+    public static function root($a, $b) : string
     {
         return self::rtrim( pow( $a, 1 / $b ) );
+    }
+
+    /**
+     * Subtract one arbitrary precision number from another
+     * @param float|string $a
+     * @param float|string $b
+     * @return string
+     */
+    public static function sub($a, $b) : string
+    {
+        $arr = Math::batchFloatToString( [ $a, $b ] );
+        $a = $arr[0];
+        $b = $arr[1];
+        return self::rtrim( bcsub( $a, $b ) );
+    }
+
+    /**
+     * Add two arbitrary precision numbers
+     * @param float|string $a
+     * @param float|string $b
+     * @return string
+     */
+    public static function add($a, $b) : string
+    {
+        $arr = Math::batchFloatToString( [ $a, $b ] );
+        $a = $arr[0];
+        $b = $arr[1];
+        return self::rtrim( bcadd( $a, $b ) );
     }
 
     /**

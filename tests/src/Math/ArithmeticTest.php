@@ -29,7 +29,7 @@ class ArithmeticTest extends TestCase
     {
         $this->assertEquals( '3.95', Arithmetic::mul( 0.5, 7.9 ) );
         $this->assertEquals( 1.1879641167E55, Arithmetic::mul( 5.97237E24, 1.9891E30 ) );
-        $this->assertSame( '35427777352739786224000',
+        $this->assertSame( '35427777352739487125610.72776061158923234955256',
             Arithmetic::mul( 6.67408E-11, '530826381355025518507580486907732.44001195' ) );
     }
 
@@ -49,5 +49,19 @@ class ArithmeticTest extends TestCase
     public function testRoot()
     {
         $this->assertEquals( 2, Arithmetic::root( 8, 3 ) );
+    }
+
+    public function testSub()
+    {
+        $this->assertSame( '5', Arithmetic::sub( 8, 3 ) );
+        $this->assertSame( '11879641166999999999999999999999999999999999999999999999',
+            Arithmetic::sub( 1.1879641167E55, 1 ) );
+    }
+
+    public function testAdd()
+    {
+        $this->assertSame( '11', Arithmetic::add( 8, 3 ) );
+        $this->assertSame( '11879641167000000000000000000000000000000000000000000000',
+            Arithmetic::add( '11879641166999999999999999999999999999999999999999999999', 1 ) );
     }
 }

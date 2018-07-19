@@ -32,6 +32,8 @@ class MathTest extends TestCase
         $this->assertEquals( '1542', Math::floatToString( '1.542E3' ) );
         $this->assertEquals( '154.2', Math::floatToString( '1.542E2' ) );
         $this->assertEquals( '0.01542', Math::floatToString( '1.542E-2' ) );
+        $this->assertEquals( '11879641166999999999999999999999999999999999999999999999',
+            Math::floatToString( '11879641166999999999999999999999999999999999999999999999', false ) );
     }
 
     /**
@@ -40,8 +42,8 @@ class MathTest extends TestCase
     public function testBatchFloatToString()
     {
         $this->assertSame(
-            [ '10000', '0.0001', '1542', '123' ],
-            Math::batchFloatToString( [ '1e4', '1e-4', '1.542E3', '123' ] )
+            [ '10000', '0.0001', '1542', '11879641166999999999999999999999999999999999999999999999' ],
+            Math::batchFloatToString( [ '1e4', '1e-4', '1.542E3', '11879641166999999999999999999999999999999999999999999999' ] )
         );
     }
 
