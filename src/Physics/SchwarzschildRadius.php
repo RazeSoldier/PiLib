@@ -20,26 +20,20 @@
 
 namespace PiLib\Physics;
 
-use PiLib\Core;
+use PiLib\Math\Arithmetic;
 
-abstract class Physics extends Core
+class SchwarzschildRadius extends Physics
 {
-    /**
-     * @var float Gravitational constant, 6.674×10−11 N·kg–2·m2
-     */
-    const G = 6.67408E-11;
+    protected $requireValue = [ 'm' ];
 
-    /**
-     * @var float Speed of light, 299792458 m/s
-     */
-    const C = 299792458;
-
-    protected function validate(array $needCheck, callable $funName = null)
+    public function __construct(array $cond)
     {
-        parent::validate( $needCheck, function (array $needCheck, $require) {
-            if ( $needCheck[$require] <= 0 ) {
-                throw new \DomainException( "'$require' must be > 0", 8 );
-            }
-        } );
+        parent::__construct( $cond );
+    }
+
+    public function calculate() : void
+    {
+        $this->result = ( Arithmetic::mul( 2, Arithmetic::mul( parent::G, $this->condValue['m'] ) ) /
+            Arithmetic::pow( parent::C, 2 ) );
     }
 }
