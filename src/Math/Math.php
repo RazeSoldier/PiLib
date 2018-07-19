@@ -27,13 +27,18 @@ class Math
     /**
      * Converting a float represented by a scientific notation to a string
      * @param float|string $float
+     * @param bool $strict Whether to throw it when an exception occur
      * @return string
      */
-    public static function floatToString($float) : string
+    public static function floatToString($float, bool $strict = true) : string
     {
         $pattern = '/(?<isMinus>-)?(?<significand>(?<int>[0-9]*)(\.(?<decimal>[0-9]*))?)(E|e)(?<symbol>[+|-])?(?<exponent>[0-9]*)/';
         if ( preg_match_all( $pattern, $float, $matches ) === 0 ) {
-            throw new InvalidArgumentException( "Invalid float represented by a scientific notation: $float" );
+            if ( $strict ) {
+                throw new InvalidArgumentException( "Invalid float represented by a scientific notation: $float" );
+            } else {
+                return $float;
+            }
         }
         $prefix = $matches['isMinus'][0];
         // Match like 1E10, 3E13, 3E-13

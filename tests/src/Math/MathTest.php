@@ -52,4 +52,9 @@ class MathTest extends TestCase
     {
         Math::floatToString( '530826381355025518507580486907732.44001195' );
     }
+
+    public function testFloatToStringNonStrictMode()
+    {
+        $this->assertSame( '1', Math::floatToString( 1, false ) );
+    }
 }
