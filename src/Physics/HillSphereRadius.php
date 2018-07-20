@@ -20,36 +20,26 @@
 
 namespace PiLib\Physics;
 
-use PiLib\Core;
+use PiLib\Math\Arithmetic as main;
 
-abstract class Physics extends Core
+class HillSphereRadius extends Physics
 {
-    /**
-     * @var float Gravitational constant, 6.674×10−11 N·kg–2·m2
-     */
-    const G = 6.67408E-11;
+    protected $requireValue = [ 'e', 'M', 'm', 'a' ];
 
-    /**
-     * @var float Speed of light, 299792458 m/s
-     */
-    const C = 299792458;
-
-    /**
-     * @var float Astronomical unit, 149597870700 metres (about 150 million kilometres)
-     */
-    const AU = 149597870700;
+    public function calculate() : void
+    {
+        $this->result = main::mul(
+            main::mul( $this->condValue['a'], main::sub( 1, $this->condValue['e'] ) ),
+            main::root( main::div( $this->condValue['m'], main::mul( 3, $this->condValue['M'] ) ), 3 )
+        );
+    }
 
     protected function validate(array $needCheck, callable $funName = null)
     {
-        if ( $funName !== null ) {
-            $fun = $funName;
-        } else {
-            $fun = function (array $needCheck, $require) {
-                if ( $needCheck[$require] <= 0 ) {
-                    throw new \DomainException( "'$require' must be > 0", 8 );
-                }
-            };
-        }
-        parent::validate( $needCheck, $fun );
+        parent::validate( $needCheck, function (array $needCheck, $require) {
+            if ( $needCheck[$require] < 0 ) {
+                throw new \DomainException( "'$require' must be >= 0", 8 );
+            }
+        } );
     }
 }
