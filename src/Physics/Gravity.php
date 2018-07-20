@@ -22,6 +22,13 @@ namespace PiLib\Physics;
 
 use PiLib\Math\Arithmetic;
 
+/**
+ * Require values:
+ * m1 and m2 - the masses of the objects interacting
+ * r - the distance between the centers of the masses
+ * @see https://en.wikipedia.org/wiki/Gravity
+ * @package PiLib\Physics
+ */
 class Gravity extends Physics
 {
     protected $requireValue = [ 'm1', 'm2', 'r' ];

@@ -22,6 +22,15 @@ namespace PiLib\Physics;
 
 use PiLib\Math\Arithmetic as main;
 
+/**
+ * Require values:
+ * m - the mass of the smaller body (e.g. Earth)
+ * M - it orbits a heavier body (e.g. Sun) of mass
+ * a - a semi-major axis
+ * e - an eccentricity
+ * @see https://en.wikipedia.org/wiki/Hill_sphere
+ * @package PiLib\Physics
+ */
 class HillSphereRadius extends Physics
 {
     protected $requireValue = [ 'e', 'M', 'm', 'a' ];

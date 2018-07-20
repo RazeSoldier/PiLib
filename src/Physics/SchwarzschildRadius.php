@@ -22,6 +22,12 @@ namespace PiLib\Physics;
 
 use PiLib\Math\Arithmetic;
 
+/**
+ * Require value:
+ * m - the mass of the body
+ * @see https://en.wikipedia.org/wiki/Schwarzschild_radius
+ * @package PiLib\Physics
+ */
 class SchwarzschildRadius extends Physics
 {
     protected $requireValue = [ 'm' ];
