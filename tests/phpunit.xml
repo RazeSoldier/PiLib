@@ -7,7 +7,7 @@
         <testsuite name="Helper">
             <file>src/PiTest.php</file>
         </testsuite>
-        <testsuite name="Ex">
+        <testsuite name="Physics">
             <directory>src/Physics</directory>
         </testsuite>
         <testsuite name="Math">
