@@ -26,11 +26,6 @@ class SchwarzschildRadius extends Physics
 {
     protected $requireValue = [ 'm' ];
 
-    public function __construct(array $cond)
-    {
-        parent::__construct( $cond );
-    }
-
     public function calculate() : void
     {
         $this->result = ( Arithmetic::mul( 2, Arithmetic::mul( parent::G, $this->condValue['m'] ) ) /

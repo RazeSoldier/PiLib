@@ -26,11 +26,6 @@ class Gravity extends Physics
 {
     protected $requireValue = [ 'm1', 'm2', 'r' ];
 
-    public function __construct(array $cond)
-    {
-        parent::__construct( $cond );
-    }
-
     public function calculate() : void
     {
         $this->result = Arithmetic::mul(
