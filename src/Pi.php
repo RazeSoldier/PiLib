@@ -43,10 +43,11 @@ final class Pi
      */
     private $unit;
 
-    public function __construct(string $method, array $conds)
+    public function __construct(string $method, array $conds, int $scale = 10)
     {
         $this->unit = $this->factory( $method, $conds );
         $this->conds = $conds;
+        bcscale( $scale );
     }
 
     public function calculate() : string
@@ -69,7 +70,7 @@ final class Pi
     /**
      * @return string
      */
-    public function getResult(): string
+    public function getResult() : string
     {
         return $this->result;
     }
