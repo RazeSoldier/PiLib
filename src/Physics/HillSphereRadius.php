@@ -46,8 +46,14 @@ class HillSphereRadius extends Physics
     protected function validate(array $needCheck, callable $funName = null)
     {
         parent::validate( $needCheck, function (array $needCheck, $require) {
-            if ( $needCheck[$require] < 0 ) {
-                throw new \DomainException( "'$require' must be >= 0", 8 );
+            if ( $require === 'M' || $require === 'm' || $require === 'a' ) {
+                if ( $needCheck[$require] <= 0 ) {
+                    throw new \DomainException( "'$require' must be > 0", 8 );
+                }
+            } else {
+                if ( $needCheck[$require] < 0 ) {
+                    throw new \DomainException( "'$require' must be >= 0", 8 );
+                }
             }
         } );
     }

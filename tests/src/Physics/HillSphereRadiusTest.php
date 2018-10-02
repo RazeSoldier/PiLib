@@ -38,4 +38,24 @@ class HillSphereRadiusTest extends TestCase
         $testObj->calculate();
         $this->assertSame( '1496402263.4391954824733', $testObj->getResult() );
     }
+
+    /**
+     * We deliberately throw some exception to test them
+     * @expectedException \DomainException
+     */
+    public function testDomainExceptionThrow1()
+    {
+        $testObj = new HillSphereRadius( [ 'M' => 13.2, 'm' => 1, 'a' => 0, 'e' => 100 ] );
+        $testObj->calculate();
+    }
+
+    /**
+     * We deliberately throw some exception to test them
+     * @expectedException \DomainException
+     */
+    public function testDomainExceptionThrow2()
+    {
+        $testObj = new HillSphereRadius( [ 'M' => 13.2, 'm' => 1, 'a' => 2, 'e' => -1 ] );
+        $testObj->calculate();
+    }
 }
